@@ -3,6 +3,7 @@
 
 .recipe__list--wrapper {
   @include absolute-center;
+  top: 45%;
   max-height: 600px;
   height: 80vh;
   margin: 0 auto;
@@ -36,7 +37,7 @@
   display: flex;
   flex-direction: column;
   height: 600px;
-  width: 800px;
+  width: 80vw;
   padding: 64px;
   gap: 16px;
   color: #000;
@@ -49,10 +50,10 @@
 .recipe__list--button {
   @include button-style;
   position: absolute;
-  bottom: 80px;
+  bottom: 126px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
+  width: 80vw;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -60,5 +61,11 @@
 
   &:hover {
     padding: 22px 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .recipe__list {
+    padding: 32px;
   }
 }

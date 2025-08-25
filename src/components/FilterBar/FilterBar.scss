@@ -8,6 +8,7 @@
 
   .filter__bar--left {
     display: flex;
+    flex-wrap: wrap;
     gap: 32px;
   }
 
@@ -15,6 +16,7 @@
     font-size: 18px;
     display: flex;
     gap: 16px;
+    white-space: nowrap;
 
     input {
       height: 20px;
@@ -36,5 +38,12 @@
       border-color: $highlight-color;
       outline: none;
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .filter__bar {
+    flex-wrap: wrap;
+    gap: 32px;
   }
 }
