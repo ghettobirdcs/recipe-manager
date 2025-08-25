@@ -31,7 +31,7 @@
 .recipe__list {
   // TODO: Find out how to round edges of scrollbar or create custom scrollbar
   scrollbar-width: thin;
-  scrollbar-color: $highlight-color #fff;
+  scrollbar-color: $highlight-color $primary-color;
   display: flex;
   flex-direction: column;
   height: 600px;
@@ -46,7 +46,6 @@
 
   .recipe__list--button {
     @include button-style;
-    padding: 0;
     position: absolute;
     bottom: -80px;
     left: 0;
@@ -56,15 +55,8 @@
     letter-spacing: 1px;
     z-index: 10;
 
-    a {
-      display: block;
-      height: 100%;
-      padding: 16px 0;
-    }
-
     &:hover {
-      scale: 1;
-      padding: 8px 0;
+      padding: 22px 0;
     }
   }
 }

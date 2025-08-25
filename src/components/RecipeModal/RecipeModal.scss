@@ -7,34 +7,54 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(34, 34, 34, 0.35);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 300ms ease;
+}
+
+.recipe__modal--overlay.open {
+  background: rgba(34, 34, 34, 0.35);
+  pointer-events: initial;
 }
 
 .recipe__modal--content {
-  background: white;
+  background: $primary-color;
   border-radius: $border-radius;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
   max-width: 500px;
   width: 90%;
-  padding: 2rem;
+  padding: 64px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 24px;
+  opacity: 0;
+  transform: translateX(60vw);
+  transition: all 300ms ease;
+}
+
+.recipe__modal--content.open {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .btn--close {
+  @include button-style;
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: none;
-  border: none;
+  background: $primary-color;
+  border: 1px solid $highlight-color;
   font-size: 1.5rem;
-  color: #888;
+  color: $secondary-color;
   cursor: pointer;
 
   &:hover {
-    color: $primary-color;
+    background-color: initial;
+    padding: initial 64px;
   }
 }

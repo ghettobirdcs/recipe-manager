@@ -4,4 +4,3 @@ export { default as RecipeCard } from "./RecipeCard/RecipeCard";
 export { default as RecipeForm } from "./RecipeForm/RecipeForm";
 export { default as RecipeList } from "./RecipeList/RecipeList";
 export { default as RecipeModal } from "./RecipeModal/RecipeModal";
-export { default as RecipeDetail } from "./RecipeDetail/RecipeDetail";
