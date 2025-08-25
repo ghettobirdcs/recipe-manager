@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.recipe__modal--overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.recipe__modal--content {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+  max-width: 500px;
+  width: 90%;
+  padding: 2rem;
+  position: relative;
+}
+
+.btn--close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.recipe__list {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  padding: 32px;
+  gap: 16px;
+  background-color: $primary-color;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}

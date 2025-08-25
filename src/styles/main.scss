@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+body {
+  font-family: $font-stack;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: $primary-color;
+  transition: color 300ms ease;
+  text-decoration: none;
+
+  &:hover {
+    color: $highlight-color;
+  }
+}

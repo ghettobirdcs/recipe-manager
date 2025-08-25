@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.recipe__card {
+  padding: 1.25rem;
+  background: $secondary-color;
+  border-radius: $border-radius;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .recipe__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .recipe__actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      @include button-style;
+      font-size: 0.95rem;
+    }
+  }
+}
