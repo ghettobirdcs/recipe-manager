@@ -5,13 +5,37 @@ import RecipeCard from "../RecipeCard/RecipeCard";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import RecipeModal from "../RecipeModal/RecipeModal";
-import { deleteRecipe } from "../../features/recipes/recipesSlice";
+import {
+  deleteRecipe,
+  favoriteRecipe,
+} from "../../features/recipes/recipesSlice";
 import { setSelectedRecipeId } from "../../features/ui/uiSlice";
 import { v4 as uuidv4 } from "uuid";
+import FilterBar from "../FilterBar/FilterBar";
 
 const RecipeList = () => {
-  // Get recipes from Redux state manager
+  // Get recipe filter from Redux
+  const filter = useSelector((state) => state.ui.filter);
+
+  // Get recipes from Redux state manager and filter them
   const recipes = useSelector((state) => state.recipes.recipes);
+
+  // Filter recipes based on ui.filter state
+  const filteredRecipes = recipes
+    .filter((recipe) =>
+      recipe.title.toLowerCase().includes((filter.search || "").toLowerCase()),
+    )
+    .filter((recipe) =>
+      filter.favoritesOnly ? recipe.favorite === true : true,
+    )
+    .sort((a, b) => {
+      if (filter.sort === "desc") {
+        return b.title.localeCompare(a.title, undefined, {
+          sensitivity: "base",
+        });
+      }
+      return a.title.localeCompare(b.title, undefined, { sensitivity: "base" });
+    });
 
   // Assign selected recipe + id using Redux state management
   const selectedRecipeId = useSelector((state) => state.ui.selectedRecipeId);
@@ -36,10 +60,10 @@ const RecipeList = () => {
     if (listElement) {
       setIsOverflowing(listElement.scrollHeight > listElement.clientHeight);
     }
-  }, [recipes]);
+  }, [recipes, filter]);
 
+  // Clean up selected recipe id when the modal closes
   useEffect(() => {
-    // Clean up selected recipe id when the modal closes
     if (modalOpen === false) {
       dispatch(setSelectedRecipeId(null));
     }
@@ -57,6 +81,10 @@ const RecipeList = () => {
 
   const handleDelete = (id) => {
     dispatch(deleteRecipe(id));
+  };
+
+  const handleFavorite = (id) => {
+    dispatch(favoriteRecipe(id));
   };
 
   return (
@@ -80,17 +108,19 @@ const RecipeList = () => {
           <div className="recipe__list--fade recipe__list--fade--top" />
         )}
         <div className="recipe__list" ref={listRef}>
+          <FilterBar />
           <h1>Recipe Manager</h1>
-          {recipes.length === 0 ? (
+          {filteredRecipes.length === 0 ? (
             <p>No recipes found. </p>
           ) : (
-            recipes.map((recipe) => (
+            filteredRecipes.map((recipe) => (
               <RecipeCard
                 key={recipe.id}
                 recipe={recipe}
                 onView={() => handleView(recipe.id)}
                 onEdit={() => handleEdit(recipe.id)}
                 onDelete={() => handleDelete(recipe.id)}
+                onFavorite={() => handleFavorite(recipe.id)}
               />
             ))
           )}

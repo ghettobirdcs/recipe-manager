@@ -49,14 +49,14 @@
   button[type="button"] {
     @include button-style;
     font-size: 20px;
-    width: 40%;
+    width: 38%;
     position: absolute;
     right: 64px;
     bottom: 64px;
     transform: translateY(50%);
 
     &:hover {
-      width: 42%;
+      width: 40%;
     }
   }
 

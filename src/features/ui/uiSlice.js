@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  filter: "",
+  filter: {
+    search: "",
+    favoritesOnly: false,
+    sort: "asc",
+  },
   selectedRecipeId: null,
 };
 
@@ -9,8 +13,14 @@ const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    setFilter: (state, action) => {
-      state.filter = action.payload;
+    setFilterSearch: (state, action) => {
+      state.filter.search = action.payload;
+    },
+    setFilterFavorites: (state, action) => {
+      state.filter.favoritesOnly = action.payload;
+    },
+    setFilterSort: (state, action) => {
+      state.filter.sort = action.payload;
     },
     setSelectedRecipeId: (state, action) => {
       state.selectedRecipeId = action.payload;
@@ -18,5 +28,10 @@ const uiSlice = createSlice({
   },
 });
 
-export const { setFilter, setSelectedRecipeId } = uiSlice.actions;
+export const {
+  setFilterSearch,
+  setFilterSort,
+  setFilterFavorites,
+  setSelectedRecipeId,
+} = uiSlice.actions;
 export default uiSlice.reducer;
