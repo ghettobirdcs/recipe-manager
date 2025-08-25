@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import "./RecipeForm.scss";
 
 import { addRecipe } from "../../features/recipes/recipesSlice";
+import { Link } from "react-router-dom";
 
 const RecipeForm = () => {
   const [title, setTitle] = useState("");
@@ -43,6 +44,9 @@ const RecipeForm = () => {
         />
       </div>
       <button type="submit">Add Recipe</button>
+      <button type="button">
+        <Link to="/">Back to Recipe List</Link>
+      </button>
     </form>
   );
 };

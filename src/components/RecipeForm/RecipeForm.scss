@@ -8,20 +8,21 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   width: 50%;
   height: 50%;
-  padding: 64px;
+  padding: 32px 64px 64px 64px;
   display: flex;
   flex-direction: column;
   gap: 32px;
 
   .recipe__half {
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 16px;
 
     &:first-child {
-      justify-content: flex-start;
+      height: 35%;
     }
   }
 
@@ -44,17 +45,24 @@
     transition: border-color 0.2s;
 
     &:focus {
-      border-color: $primary-color;
+      border-color: $highlight-color;
       outline: none;
     }
   }
 
-  button[type="submit"] {
+  button[type="submit"],
+  button[type="button"] {
     @include button-style;
     font-size: 1.2rem;
     position: absolute;
     right: 64px;
-    bottom: 50%;
+    bottom: 64px;
     transform: translateY(50%)
+  }
+
+  button[type="button"] {
+    transform-origin: bottom left;
+    right: initial;
+    left: 64px;
   }
 }

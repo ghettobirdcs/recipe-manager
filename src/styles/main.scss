@@ -25,8 +25,4 @@ a {
   color: $primary-color;
   transition: color 300ms ease;
   text-decoration: none;
-
-  &:hover {
-    color: $highlight-color;
-  }
 }

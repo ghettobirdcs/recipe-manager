@@ -1,5 +1,5 @@
 @mixin button-style {
-  padding: 0.5rem 1.5rem;
+  padding: 16px 24px;
   border: none;
   border-radius: $border-radius;
   background: #1A1B1C;
@@ -10,12 +10,11 @@
   transition: all 300ms ease;
   transform-origin: bottom right;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $highlight-color;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
     outline: none;
-    scale: 1.1;
+    padding: 16px 42px 16px 42px;
   }
 }
 

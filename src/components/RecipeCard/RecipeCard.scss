@@ -3,8 +3,9 @@
 
 .recipe__card {
   padding: 1.25rem;
-  background: $secondary-color;
+  background: #fff;
   border-radius: $border-radius;
+  border: 1px solid $highlight-color;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
