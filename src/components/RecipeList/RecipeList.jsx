@@ -124,12 +124,12 @@ const RecipeList = () => {
               />
             ))
           )}
-          <Link to={`/edit/${uuidv4()}`}>
-            <button className="recipe__list--button">Add recipe</button>
-          </Link>
         </div>
         {isOverflowing && <div className="recipe__list--fade" />}
       </div>
+      <Link to={`/edit/${uuidv4()}`}>
+        <button className="recipe__list--button">Add recipe</button>
+      </Link>
     </>
   );
 };
