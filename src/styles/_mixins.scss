@@ -2,17 +2,26 @@
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: $border-radius;
-  background: $highlight-color;
+  background: #1A1B1C;
   color: white;
   font-weight: 500;
   cursor: pointer;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: all 300ms ease;
+  transform-origin: bottom right;
 
   &:hover,
   &:focus {
-    background: darken($primary-color, 8%);
+    background-color: $highlight-color;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
     outline: none;
+    scale: 1.1;
   }
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

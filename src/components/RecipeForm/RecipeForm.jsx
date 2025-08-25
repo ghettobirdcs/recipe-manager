@@ -20,24 +20,28 @@ const RecipeForm = () => {
 
   return (
     <form className="recipe__form" onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        id="title"
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        required
-        placeholder="Recipe Title"
-      />
-      <label htmlFor="description">Description</label>
-      <textarea
-        id="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-        placeholder="Describe the recipe..."
-        rows={4}
-      />
+      <div className="recipe__half">
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+          placeholder="Recipe Title"
+        />
+      </div>
+      <div className="recipe__half">
+        <label htmlFor="description">Description</label>
+        <textarea
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+          placeholder="Describe the recipe..."
+          rows={4}
+        />
+      </div>
       <button type="submit">Add Recipe</button>
     </form>
   );

@@ -2,11 +2,14 @@
 @import "../../styles/mixins";
 
 .recipe__list {
+  @include absolute-center;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
-  padding: 32px;
+  width: 800px;
+  height: 80vh;
+  padding: 64px;
   gap: 16px;
+  color: #000;
   background-color: $primary-color;
   border-radius: $border-radius;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
