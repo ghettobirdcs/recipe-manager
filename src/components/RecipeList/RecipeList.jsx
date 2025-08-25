@@ -67,7 +67,7 @@ const RecipeList = () => {
     if (modalOpen === false) {
       dispatch(setSelectedRecipeId(null));
     }
-  }, [modalOpen]);
+  }, [modalOpen, dispatch]);
 
   const handleView = (id) => {
     dispatch(setSelectedRecipeId(id));

@@ -77,8 +77,12 @@ const RecipeForm = () => {
       <button type="submit">{recipe ? "Edit Recipe" : "Add Recipe"}</button>
 
       <Link to="/">
-        <button type="button">Back to Recipe List</button>
+        <button type="button">Back to List</button>
       </Link>
+
+      <div className="recipe__form__actions--modal">
+        <img src="/menu-lines.svg" alt="" />
+      </div>
     </form>
   );
 };
