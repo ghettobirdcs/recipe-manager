@@ -69,34 +69,3 @@
     }
   }
 }
-
-@media (max-width: 600px) {
-  .recipe__card {
-    .recipe__actions {
-      display: none;
-    }
-  }
-
-  .recipe__actions--modal {
-    display: block;
-
-    button {
-      @include button-style;
-      padding: 12px 16px;
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      img {
-        filter: invert(100%);
-        width: 16px;
-        height: 16px;
-      }
-
-      &:hover {
-        padding: 12px 32px;
-      }
-    }
-  }
-}

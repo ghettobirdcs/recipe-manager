@@ -69,6 +69,7 @@ const RecipeList = () => {
     }
   }, [modalOpen, dispatch]);
 
+  // HANDLES
   const handleView = (id) => {
     dispatch(setSelectedRecipeId(id));
     setModalOpen(true);

@@ -109,17 +109,5 @@
     textarea {
       margin: 0;
     }
-
-    .recipe__form__actions--modal {
-      @include button-style;
-      display: flex;
-      background-color: $secondary-color;
-
-      img {
-        filter: invert(100%);
-        height: 24px;
-        width: 24px;
-      }
-    }
   }
 }

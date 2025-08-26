@@ -4,11 +4,14 @@ import "./RecipeForm.scss";
 
 import { addRecipe, editRecipe } from "../../features/recipes/recipesSlice";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import RecipeThird from "../UI/RecipeThird";
+import MobileModal from "../UI/MobileModal";
 
 const RecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [description, setDescription] = useState("");
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -41,48 +44,30 @@ const RecipeForm = () => {
 
   return (
     <form className="recipe__form" onSubmit={handleSubmit}>
-      <div className="recipe__third">
-        <label htmlFor="title">Title</label>
-        <input
-          id="title"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-          placeholder="Recipe Title"
-        />
-      </div>
-      <div className="recipe__third">
-        <label htmlFor="ingredients">Ingredients</label>
-        <input
-          id="ingredients"
-          type="text"
-          value={ingredients}
-          onChange={(e) => setIngredients(e.target.value)}
-          required
-          placeholder="Ingredients used for this recipe..."
-        />
-      </div>
-      <div className="recipe__third">
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-          placeholder="Describe the recipe..."
-          rows={4}
-        />
-      </div>
-      <button type="submit">{recipe ? "Edit Recipe" : "Add Recipe"}</button>
+      <RecipeThird type="title" value={title} setValue={setTitle} />
+      <RecipeThird
+        type="ingredients"
+        value={ingredients}
+        setValue={setIngredients}
+      />
+      <RecipeThird
+        type="description"
+        value={description}
+        setValue={setDescription}
+      />
 
+      {/* FORM BUTTONS */}
+      <button type="submit">{recipe ? "Edit Recipe" : "Add Recipe"}</button>
       <Link to="/">
         <button type="button">Back to List</button>
       </Link>
 
-      <div className="recipe__form__actions--modal">
-        <img src="/menu-lines.svg" alt="" />
-      </div>
+      {/* MOBILE MODAL FOR BUTTONS */}
+      <MobileModal
+        isMobileOpen={isMobileOpen}
+        setIsMobileOpen={setIsMobileOpen}
+        recipe={recipe}
+      />
     </form>
   );
 };
