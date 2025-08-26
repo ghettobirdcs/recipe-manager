@@ -41,10 +41,6 @@
   color: $highlight-color;
 }
 
-.recipe__actions--modal {
-  display: none;
-}
-
 @media (max-width: 800px) {
   .recipe__list {
     h1 {

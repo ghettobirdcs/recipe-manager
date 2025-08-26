@@ -79,14 +79,53 @@
 }
 
 @media (max-width: 600px) {
+  .recipe__form {
+    .mobile-modal {
+      display: block;
+
+      .mobile-buttons.mobile-open {
+
+        button[type="submit"],
+        button[type="button"] {
+          right: 16px;
+          font-size: 12px;
+        }
+
+        button[type="button"] {
+          left: 16px;
+        }
+      }
+    }
+  }
+
   .recipe__list {
     .recipe__card {
       .recipe__actions {
-        display: none;
-      }
+        flex-wrap: wrap;
 
-      .mobile-modal {
-        display: block;
+        button {
+          width: 45%;
+
+          &:hover {
+            padding: 12px 0;
+            width: 45%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .recipe__form {
+    .mobile-modal {
+      .mobile-buttons.mobile-open {
+
+        button[type="submit"],
+        button[type="button"] {
+          width: 15%;
+          min-width: 108px;
+        }
       }
     }
   }
